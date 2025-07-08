@@ -1,7 +1,8 @@
 let player, playerX, playerY 
 let ball, ballX, ballY, ballSpeed 
 let goalie, goalieX, goalieY
-
+let goalX, goalY
+let ballMoving = false
 let playerImg, goalieImg, ballImg, goalImg;
 
 
@@ -15,9 +16,22 @@ function preload(){
 function setup(){
 	createCanvas(windowWidth, windowHeight);
 
-	//Player setup
-	playerX = windowWidth/2
-	playerY = windowHeight/2
+	//Player setup 
+	playerX = 0
+	playerY = 550 
+
+	//goalie setup
+	goalieX = windowWidth - 200
+	goalieY = windowHeight / 2 - 50 
+
+	//ball setup
+	ballX = playerX +40
+	ballY = playerY - 20
+	ballSpeed = 5 
+
+	//goal setup 
+	goalX = windowWidth - 200
+	goalY = windowHeight / 2 - 60
 } 
 
 
@@ -32,11 +46,15 @@ function keyPressed() {
   } else if (keyCode === RIGHT_ARROW) {
     x = x + 5;
   }
+}
 
-	//ball setup
-	ballX = playerX +40
-	ballY = playeY - 20
+function draw(){
+	background(200, 240, 255)
 
-	ballSpeed = 2
+	//draw goalie
+	image(goalieImg, goalieX, goalieY, 60, 100)
+
+	//draw player
+	image(playerImg, playerX, playerY, 120, 120)
 
 }
