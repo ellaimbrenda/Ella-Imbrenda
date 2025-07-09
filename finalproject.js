@@ -3,6 +3,7 @@ let ball, ballX, ballY, ballSpeed
 let goalie, goalieX, goalieY
 let goalX, goalY
 let ballMoving = false
+
 let playerImg, goalieImg, ballImg, goalImg;
 
 
@@ -34,27 +35,45 @@ function setup(){
 	goalY = windowHeight / 2 - 60
 } 
 
-
-function keyPressed() {
-  if (keyCode === UP_ARROW) {
-    y = y - 10;
-  } else if (keyCode === DOWN_ARROW) {
-   y = y + 10;
-  }
-  if (keyCode === LEFT_ARROW) {
-    x = x - 5;
-  } else if (keyCode === RIGHT_ARROW) {
-    x = x + 5;
-  }
-}
-
 function draw(){
-	background(200, 240, 255)
+	background(200, 240, 255) 
+
+	if (keyIsDown(LEFT_ARROW) === true) {
+    playerX -= 5;
+  }
+
+  if (keyIsDown(RIGHT_ARROW) === true) {
+    playerX += 5;
+  }
+
+  if (keyIsDown(UP_ARROW) === true) {
+    playerY -= 5;
+  }
+
+  if (keyIsDown(DOWN_ARROW) === true) {
+    playerY += 5;
+  }
+
+  if(!ballMoving){
+  	ballX = playerX = 40
+  	ballY = playerY - 20
+  }else{
+  	ballX += ballSpeed
+  }
+
+	//draw goal
+	image(goalImg, goalX, goalY, 150, 120)
 
 	//draw goalie
-	image(goalieImg, goalieX, goalieY, 60, 100)
+	image(goalieImg, goalieX, goalieY, 80, 120)
 
-	//draw player
+	//draw player 
 	image(playerImg, playerX, playerY, 120, 120)
 
+	//draw ball
+	image(ballImg, ballX, ballY, 30, 30)
+}
+
+function mousePressed(){
+	ballMoving = true
 }
