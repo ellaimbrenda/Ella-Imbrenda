@@ -35,10 +35,10 @@ let goalCount = 0;
 let maxGoals = 10; 
 
 function preload(){
-	goalieImg = loadImage('lacrossegoalie.webp');
-	playerImg = loadImage('lacrossegirl.webp');
-	ballImg = loadImage('lacrosseball.webp');
-	goalImg = loadImage('lacrossegoal.webp');
+	goalieImg = loadImage('lacrossegoalie.png');
+	playerImg = loadImage('lacrossegirl.png');
+	ballImg = loadImage('lacrosseball.png');
+	goalImg = loadImage('lacrossegoal.png');
 } 
 
 function setup(){
